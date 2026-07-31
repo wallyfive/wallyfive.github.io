@@ -1,29 +1,25 @@
-// Wait for the browser to load completely before running the script
+// Wait for the HTML document to fully load before running the script
 document.addEventListener('DOMContentLoaded', () => {
     
-    // Select the button and text elements from the HTML
+    // Select the button element from the HTML using its ID (if present on the page)
     const colorButton = document.getElementById('colorButton');
-    const elementText = document.getElementById('elementText');
     
-    // Array of element themes: [Button Color, Element Name]
-    const elements = [
-        { color: '#f77f00', name: '🔥 Fire! Powered by the Sun Warriors.' },
-        { color: '#0077b6', name: '🌊 Water! Flow like the tides of the Northern Tribe.' },
-        { color: '#2b8a3e', name: '🌍 Earth! Strong and enduring like Omashu.' },
-        { color: '#e9d8a6', name: '💨 Air! Be as free as the Air Nomads.' }
-    ];
+    // List of Marvel-inspired dynamic colors to cycle through
+    const colors = ['#c0392b', '#2980b9', '#f39c12', '#8e44ad', '#27ae60'];
     
-    let currentIndex = 0;
-
-    // Listen for a 'click' event on the button to bend elements
-    colorButton.addEventListener('click', () => {
-        // Move to the next element in our list, looping back to 0 at the end
-        currentIndex = (currentIndex + 1) % elements.length;
-        
-        // Apply the new element's color and text
-        colorButton.style.backgroundColor = elements[currentIndex].color;
-        elementText.textContent = elements[currentIndex].name;
-        
-        console.log(`Bending switched to: ${elements[currentIndex].name}`);
-    });
+    // Only run this logic if the colorButton exists on the current page
+    if (colorButton) {
+        // Add a 'click' event listener to the button
+        colorButton.addEventListener('click', () => {
+            // Generate a random index number based on the colors array length
+            const randomIndex = Math.floor(Math.random() * colors.length);
+            
+            // Change the header background color dynamically
+            const header = document.querySelector('header');
+            header.style.backgroundColor = colors[randomIndex];
+            
+            // Log a friendly message to the browser console
+            console.log('Button clicked! Header color changed to: ' + colors[randomIndex]);
+        });
+    }
 });
