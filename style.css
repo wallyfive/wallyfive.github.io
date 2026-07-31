@@ -1,144 +1,99 @@
-/* Global styles: Avatar parchment background */
+/* Global styles for the entire page with a Marvel-inspired dark/red theme */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f4ecd8;
-    color: #2c221e;
+    background: linear-gradient(135deg, #1a1a1a 0%, #3a0000 100%);
+    color: #f4f7f6;
     margin: 0;
     padding: 0;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    overflow: hidden; /* Keeps elements neatly contained */
+    justify-content: space-between;
+    text-align: center;
 }
 
-/* Container for the background element images */
-.element-background {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    z-index: -1; 
-    opacity: 0.25; 
+/* Navigation bar styling */
+.navbar {
+    background-color: #111111;
+    padding: 1rem 2rem;
+    border-bottom: 3px solid #e74c3c;
 }
 
-/* Individual background element styling */
-.bg-element {
-    background-size: cover;
-    background-position: center;
-    filter: contrast(120%) saturate(110%);
-}
-
-.fire-bg {
-    background-image: url('https://images.unsplash.com/photo-1508739773434-c26b3d09e071?auto=format&fit=crop&w=800&q=80');
-}
-
-.water-bg {
-    background-image: url('https://images.unsplash.com/photo-1518837695005-2083093ee35b?auto=format&fit=crop&w=800&q=80');
-}
-
-.earth-bg {
-    background-image: url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=800&q=80');
-}
-
-.air-bg {
-    background-image: url('https://images.unsplash.com/photo-1534088568595-a068f410bcda?auto=format&fit=crop&w=800&q=80');
-}
-
-/* Floating Element Symbols outside the central content */
-.element-symbol {
-    position: absolute;
-    font-size: 2.5rem;
-    padding: 10px;
-    background-color: rgba(255, 250, 240, 0.85);
-    border-radius: 50%;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-    z-index: 1;
+.nav-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
     display: flex;
-    align-items: center;
     justify-content: center;
-    width: 50px;
-    height: 50px;
+    gap: 2rem;
 }
 
-/* Positioning each symbol in the four corners around the page */
-.fire-symbol {
-    top: 15%;
-    left: 20%;
-    border: 2px solid #f77f00;
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
 }
 
-.water-symbol {
-    top: 15%;
-    right: 20%;
-    border: 2px solid #0077b6;
-}
-
-.earth-symbol {
-    bottom: 15%;
-    left: 20%;
-    border: 2px solid #2b8a3e;
-}
-
-.air-symbol {
-    bottom: 15%;
-    right: 20%;
-    border: 2px solid #e9d8a6;
+.nav-links a:hover, .nav-links a.active {
+    color: #e74c3c;
 }
 
 /* Header styling */
 header {
-    text-align: center;
-    margin-bottom: 20px;
-    z-index: 1;
+    background-color: #c0392b;
+    color: white;
+    padding: 2rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
-h1 {
-    color: #0077b6;
-    margin-bottom: 5px;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+header h1 {
+    margin-bottom: 0.5rem;
 }
 
-/* Main card container styled like an Earth Kingdom stone tablet */
+/* Main content area styling */
+main {
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+}
+
+/* Card container styling */
 .card {
-    background-color: #fffaf0;
-    padding: 30px;
-    border-radius: 12px;
-    border: 3px solid #2b8a3e;
-    box-shadow: 0 6px 16px rgba(43, 138, 62, 0.15);
-    text-align: center;
-    max-width: 400px;
-    z-index: 1;
+    background: #2c2c2c;
+    color: #f4f7f6;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    max-width: 500px;
+    width: 100%;
+    border-top: 4px solid #e74c3c;
 }
 
-/* Button styling representing Air Nomad freedom */
+/* Button styling */
 button {
-    background-color: #f77f00;
+    background-color: #e74c3c;
     color: white;
     border: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    border-radius: 6px;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    border-radius: 4px;
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: 1rem;
+    transition: background-color 0.3s ease;
 }
 
 /* Button hover effect */
 button:hover {
-    background-color: #d65f00;
-    transform: scale(1.05);
+    background-color: #c0392b;
 }
 
 /* Footer styling */
 footer {
-    margin-top: 30px;
-    font-size: 14px;
-    color: #5c4033;
-    z-index: 1;
+    background-color: #111111;
+    padding: 1rem;
+    font-size: 0.9rem;
+    color: #aaa;
+    border-top: 1px solid #333;
 }
