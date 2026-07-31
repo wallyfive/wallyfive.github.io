@@ -3,43 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Avatar: The Last Airbender Hub</title>
+    <title>My Awesome Website</title>
     <!-- Link to our external CSS stylesheet -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- Background container holding images for the four elements -->
-    <div class="element-background">
-        <div class="bg-element fire-bg"></div>
-        <div class="bg-element water-bg"></div>
-        <div class="bg-element earth-bg"></div>
-        <div class="bg-element air-bg"></div>
-    </div>
+    <!-- Navigation bar with interactive tabs -->
+    <nav class="navbar">
+        <ul class="nav-links">
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="about.html">About me</a></li>
+        </ul>
+    </nav>
 
-    <!-- Floating Element Symbols outside the central box -->
-    <div class="element-symbol fire-symbol" title="Fire Nation">🔥</div>
-    <div class="element-symbol water-symbol" title="Water Tribe">🌊</div>
-    <div class="element-symbol earth-symbol" title="Earth Kingdom">🌍</div>
-    <div class="element-symbol air-symbol" title="Air Nomads">💨</div>
-
-    <!-- Main header styled like an ancient scroll title -->
+    <!-- Main header section of the webpage -->
     <header>
-        <h1>Flame, Water, Earth, Air</h1>
-        <p>Master the elements with HTML, CSS, and JavaScript!</p>
+        <h1>Welcome to My Website!</h1>
+        <p>Built with HTML, CSS, and JavaScript, hosted on GitHub Pages.</p>
     </header>
 
+    <!-- Main interactive content section -->
     <main>
         <section class="card">
-            <h2>The Avatar State</h2>
-            <p id="elementText">Click the button below to cycle through the four elements!</p>
-            <!-- Interactive button for element bending -->
-            <button id="colorButton">Bend Element!</button>
+            <h2>Interactive Section</h2>
+            <p>Click the button below to see JavaScript in action!</p>
+            <!-- A button that triggers a JavaScript function when clicked -->
+            <button id="colorButton">Click Me!</button>
         </section>
     </main>
 
+    <!-- Footer section -->
     <footer>
-        <p>&copy; 2026 Air Nomad Archives. Long live the Avatar.</p>
+        <p>&copy; 2026 Future Web Developer</p>
     </footer>
 
     <!-- Link to our external JavaScript file -->
