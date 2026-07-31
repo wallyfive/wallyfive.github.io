@@ -1,43 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Meta tags for proper character encoding and mobile responsiveness -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Brawl Stars Fan Page</title>
-    <!-- Link to our external CSS stylesheet -->
+    <title>Team Rainbow | Tactical Briefing</title>
+    <!-- Link to our external CSS stylesheet for design -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-    <!-- Header section styled like a game title banner -->
+    <!-- Main header section acting as a tactical command HUD -->
     <header>
-        <h1>⭐ BRAWL STARS FAN ZONE ⭐</h1>
-        <p>Ready for battle? Collect your trophies below!</p>
+        <h1>TEAM RAINBOW // COMMAND</h1>
+        <p>Operator Clearance: Verified | Status: Ready for Deployment</p>
     </header>
 
-    <!-- Main content section -->
+    <!-- Main interactive content section -->
     <main>
         <section class="card">
-            <h2>Brawler Status</h2>
-            <p>Click the button to battle and earn trophies for your profile!</p>
+            <h2>DEFUSER DRILL</h2>
+            <p id="game-status">Status: Bomb armed. Defuse it before time runs out!</p>
             
-            <!-- Trophy counter display -->
-            <div class="trophy-display">
-                <span id="trophyCount">0</span> 🏆 Trophies
+            <!-- Tactical Minigame Display -->
+            <div id="defuser-display">
+                <span id="countdown">10</span>s
             </div>
 
-            <!-- Interactive Battle Button -->
-            <button id="magicBtn">Play Match!</button>
+            <!-- Interactive buttons for the minigame -->
+            <button id="actionBtn">ARM DEFUSER</button>
+            <button id="defuseBtn" class="hidden">CUT THE WIRE!</button>
         </section>
     </main>
 
-    <!-- Footer section -->
-    <footer>
-        <p>&copy; 2026 Brawler Fan. Not an official Supercell website.</p>
-    </footer>
-
-    <!-- Link to our external JavaScript file -->
+    <!-- Link to our external JavaScript file for interactivity -->
     <script src="script.js"></script>
 </body>
 </html>
