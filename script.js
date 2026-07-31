@@ -1,31 +1,62 @@
-// Wait for the HTML document to fully load before running our script
+// Wait for the browser to load all HTML elements before running code
 document.addEventListener('DOMContentLoaded', () => {
-    
-    // Grab our button and trophy display elements from the HTML
-    const magicButton = document.getElementById('magicBtn');
-    const trophyCountDisplay = document.getElementById('trophyCount');
+    // Grab elements from our HTML document
+    const actionBtn = document.getElementById('actionBtn');
+    const defuseBtn = document.getElementById('defuseBtn');
+    const countdownDisplay = document.getElementById('countdown');
+    const gameStatus = document.getElementById('game-status');
 
-    // Keep track of the user's trophy count
-    let trophies = 0;
+    let timer;
+    let timeLeft = 10;
+    let gameActive = false;
 
-    // Add a 'click' event listener to simulate playing a match
-    magicButton.addEventListener('click', () => {
-        // Add random trophies between 8 and 12 per win
-        const earnedTrophies = Math.floor(Math.random() * 5) + 8;
-        trophies += earnedTrophies;
-
-        // Update the screen with the new trophy count
-        trophyCountDisplay.textContent = trophies;
+    // Step 1: Click to arm the defuser and start the minigame
+    actionBtn.addEventListener('click', () => {
+        gameActive = true;
+        timeLeft = 10;
+        countdownDisplay.textContent = timeLeft;
+        gameStatus.textContent = "BOMB PLANTED! Defuse before detonation!";
         
-        // Give some victory feedback on the button temporarily
-        magicButton.textContent = `Victory! +${earnedTrophies} 🏆`;
-        
-        setTimeout(() => {
-            magicButton.textContent = "Play Again!";
-        }, 1500);
+        // Switch buttons: hide arm button, show defuse button
+        actionBtn.classList.add('hidden');
+        defuseBtn.classList.remove('hidden');
 
-        // Log the win to the browser console
-        console.log(`Match won! Total trophies: ${trophies}`);
+        // Start the countdown timer interval (ticks every 1 second)
+        timer = setInterval(() => {
+            timeLeft--;
+            countdownDisplay.textContent = timeLeft;
+
+            // Check if time has run out (Defeat condition)
+            if (timeLeft <= 0) {
+                clearInterval(timer);
+                endGame(false);
+            }
+        }, 1000);
     });
 
+    // Step 2: Click to cut the wire and stop the timer
+    defuseBtn.addEventListener('click', () => {
+        if (!gameActive) return;
+
+        clearInterval(timer);
+        endGame(true);
+    });
+
+    // Function to handle win/loss states
+    function endGame(isSuccess) {
+        gameActive = false;
+        defuseBtn.classList.add('hidden');
+        actionBtn.classList.remove('hidden');
+        actionBtn.textContent = "RE-ENGAGE DRILL";
+
+        if (isSuccess) {
+            gameStatus.textContent = "SUCCESS! Defuser disabled. Round Won.";
+            countdownDisplay.textContent = "GG";
+            alert("Operator, bomb successfully defused! Good job.");
+        } else {
+            gameStatus.textContent = "DETONATION DETECTED. Round Lost.";
+            countdownDisplay.textContent = "BOOM";
+            alert("Mission Failed. You ran out of time!");
+        }
+    }
 });
