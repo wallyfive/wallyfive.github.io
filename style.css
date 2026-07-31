@@ -11,7 +11,7 @@ body {
     align-items: center;
     justify-content: center;
     position: relative;
-    overflow: hidden; /* Keeps background elements neatly contained */
+    overflow: hidden; /* Keeps elements neatly contained */
 }
 
 /* Container for the background element images */
@@ -24,8 +24,8 @@ body {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
-    z-index: -1; /* Puts the background images safely behind all text */
-    opacity: 0.25; /* Makes the background subtle so text remains readable */
+    z-index: -1; 
+    opacity: 0.25; 
 }
 
 /* Individual background element styling */
@@ -35,7 +35,6 @@ body {
     filter: contrast(120%) saturate(110%);
 }
 
-/* Assigning specific element imagery using high-quality Unsplash photos */
 .fire-bg {
     background-image: url('https://images.unsplash.com/photo-1508739773434-c26b3d09e071?auto=format&fit=crop&w=800&q=80');
 }
@@ -50,6 +49,47 @@ body {
 
 .air-bg {
     background-image: url('https://images.unsplash.com/photo-1534088568595-a068f410bcda?auto=format&fit=crop&w=800&q=80');
+}
+
+/* Floating Element Symbols outside the central content */
+.element-symbol {
+    position: absolute;
+    font-size: 2.5rem;
+    padding: 10px;
+    background-color: rgba(255, 250, 240, 0.85);
+    border-radius: 50%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+}
+
+/* Positioning each symbol in the four corners around the page */
+.fire-symbol {
+    top: 15%;
+    left: 20%;
+    border: 2px solid #f77f00;
+}
+
+.water-symbol {
+    top: 15%;
+    right: 20%;
+    border: 2px solid #0077b6;
+}
+
+.earth-symbol {
+    bottom: 15%;
+    left: 20%;
+    border: 2px solid #2b8a3e;
+}
+
+.air-symbol {
+    bottom: 15%;
+    right: 20%;
+    border: 2px solid #e9d8a6;
 }
 
 /* Header styling */
